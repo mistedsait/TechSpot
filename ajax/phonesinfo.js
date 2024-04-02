@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const productList = document.querySelector('.container .row');
-
+// FOR SOME REASON DOESN'T WORK SO I PUT BACK THIS HTML CODE BACK TO PHONE.HTML
     let data;
 
     function loadPhones() {
