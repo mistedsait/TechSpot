@@ -448,6 +448,7 @@ h3.cart-title {
   -webkit-transform: translateY(-40px);
   transform: translateY(-40px);
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-transition-property: -webkit-transform;
   transition-property: transform;
   -webkit-transition-duration: 0.3s;
@@ -1038,3 +1039,4 @@ figure.instagram-item img.insta-image {
 .icon-hover:hover i {
   color: #3b71ca !important;
 }
+

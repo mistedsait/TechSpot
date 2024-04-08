@@ -1,0 +1,19 @@
+{
+    "phone":[{
+        "id": 1,
+        "name": "Iphone X",
+        "title": "iphone1",
+        "image": "../images/iphx.png",
+        "price": "450"
+        
+
+    },{
+        "id": 2,
+        "name": "Iphone X",
+        "title": "iphone1",
+        "image": "../images/iphx.png",
+        "price": "450"
+    }
+    
+    ]
+}
