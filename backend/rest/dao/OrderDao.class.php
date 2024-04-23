@@ -7,7 +7,7 @@ class OrderDao extends BaseDao {
         parent::__construct("orders");
     }
 
-    public function get_product_by_id($id) {
+    public function get_order_by_id($id) {
         return $this->query_unique("SELECT * FROM orders WHERE id = :id", ["id" => $id]);
     }
 
@@ -20,17 +20,10 @@ class OrderDao extends BaseDao {
     }
 
     public function delete_order($id) { 
-        $this->execute("DELETE FROM cart WHERE id = :id", ["id" => $id]);
+        $this->execute("DELETE FROM orders WHERE id = :id", ["id" => $id]);
     }
     
-    public function update_order_ammount($order_id, $total_ammount)
-    {
-        $query = "UPDATE orders SET total_ammount = :total_ammount WHERE order_id = :order_id";
-        $stmt = $this->connection->prepare($query);
-        $stmt->execute(['order_id' => $order_id, 'total_ammount' => $total_ammount]);
-        return $stmt->rowCount();
-    }
-    public function get_carts_by_user($user_id, $offset = 0, $limit = 25, $order = "id")
+    public function get_orders_by_user($user_id, $offset = 0, $limit = 25, $order = "id")
 {
     list($order_column, $order_direction) = self::parse_order($order);
     $query = "SELECT *

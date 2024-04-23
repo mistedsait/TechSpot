@@ -2,7 +2,6 @@
 
 require_once __DIR__ . "/rest/services/UserService.class.php";
 
-// Retrieve the user ID from query parameter
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (!$id) {
@@ -19,4 +18,4 @@ if (!$user) {
 }
 
 echo json_encode($user);
-?>
+

@@ -20,6 +20,9 @@ class UserService {
     public function get_all_users($offset = 0, $limit = 25, $order = "id") {
         return $this->user_dao->get_all($offset, $limit, $order);
     }
+    public function update_user($user_id, $user) {
+        $this->user_dao->update_user($user_id, $user);
+    }
 
     public function delete_user_by_id($user_id) {
         return $this->user_dao->delete_user($user_id);
