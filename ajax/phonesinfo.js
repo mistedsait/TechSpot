@@ -1,29 +1,29 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const productList = document.querySelector('.container .row');
-// FOR SOME REASON DOESN'T WORK SO I PUT BACK THIS HTML CODE BACK TO PHONE.HTML
-    let data;
+document.getElementById('product-filter').addEventListener('change', function() {
+    const selectedCategory = this.value;
+    filterProducts(selectedCategory);
+});
 
-    function loadPhones() {
-        fetch("../data/phonesinfo.json")
-            .then(response => response.json())
-            .then(fetchedData => {
-                data = fetchedData;
-                let phoneItems = ''; // Variable to store HTML content
-                const phones = data.phone;
-                if (Array.isArray(phones)) {
-                    phones.forEach(phone => {
-                      phoneItems += `
-                        <div class="col mb-5">
-                        <div class="card h-100">
+function filterProducts(category) {
+    const productList = document.querySelector('.container .row');
+    productList.innerHTML = ''; 
+    
+ 
+    fetch(`../backend/get_products.php?category=${category}`)
+        .then(response => response.json())
+        .then(products => {
+            products.forEach(product => {  
+                productList.innerHTML += `
+                    <div class="col mb-5" style="width:280px; height: 515px;">
+                        <div class="card h-100" style="width:280px; height: 515px;">
                             <!-- Product image-->
-                            <img class="card-img-top" src="${phone.image}" alt="${phone.title}" />
+                            <img class="card-img-top" src="../${product.image}" alt="${product.name}" style="width:270px; height: 250px;" />
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">${phone.name}</h5>
+                                    <h5 class="fw-bolder">${product.name}</h5>
                                     <!-- Product price-->
-                                    ${phone.price}
+                                    ${product.price}
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -32,14 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         </div>
                     </div>
-                    `;
-                });
-                productList.innerHTML += phoneItems; // Append the HTML content
-            }})
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
+                `;
             });
-    }
+        })
+        .catch(error => {
+            console.error('Error fetching products:', error);
+        });
+}
 
-    loadPhones();
-});

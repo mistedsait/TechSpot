@@ -12,6 +12,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/spinkit.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,33 +213,54 @@
               ">
             <div class="card-body p-5 shadow-5 text-center">
               <h2 class="fw-bold mb-5">Sign up now</h2>
-              <form>
+              <form id="register-form" method="post">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="form3Example1" class="form-control" />
-                      <label class="form-label" for="form3Example1">First name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="firstname"
+                        id="firstname"
+                        placeholder="Enter first name" />
+                        
+                      <label class="form-label" for="firstname">First name</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input type="text" id="form3Example2" class="form-control" />
-                      <label class="form-label" for="form3Example2">Last name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="lastname"
+                        id="lastname"
+                        placeholder="Enter last name" />
+                      <label class="form-label" for="lastname">Last name</label>
                     </div>
                   </div>
                 </div>
   
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3" class="form-control" />
-                  <label class="form-label" for="form3Example3">Email address</label>
+                  <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  placeholder="Enter email" />
+                  <label class="form-label" for="email">Email address</label>
                 </div>
   
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4" class="form-control" />
-                  <label class="form-label" for="form3Example4">Password</label>
+                  <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="password"
+                  placeholder="Enter password"/>
+                  <label class="form-label" for="password">Password</label>
                 </div>
   
                 <!-- Checkbox -->
@@ -265,6 +287,15 @@
     <!-- Jumbotron -->
   </section>
   <!-- Section: Design Block -->
-      
+  <script src="js/bootstrap.bundle.min.js"></script> 
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  
+  <script src="js/block-ui.js"></script> 
+  <script src="js/registerform.js"></script>
+  <script src="js/toastr.min.js"></script>
+  
+  
+
     
 </html>
