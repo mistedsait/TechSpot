@@ -71,7 +71,7 @@ $("#register-form").validate({
       let data = serializeForm(form);
   
       $.ajax({
-          url: "http://localhost/TechSpot/backend/add_user.php",
+          url: "http://localhost/TechSpot/backend/users/add",
           type: "POST",
           data: JSON.stringify(data),
           contentType: "application/json",

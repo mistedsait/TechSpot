@@ -17,10 +17,10 @@ try {
         'product_id' => $payload['product_id'],
         'category' => $payload['category']
     ];
-    $added_item = $product_service->add_product($cart_item);
+    $added_item = $product_service->add_product($product_item);
     echo json_encode(['message' => 'Product Added Succesfully', 'data' => $added_item]);
 } catch (Exception $e) {
     header('HTTP/1.1 500 Internal Server Error');
     echo json_encode(['error' => $e->getMessage()]);
 }
-?>
+

@@ -18,4 +18,15 @@ class UserDao extends BaseDao
         $users['id']=$this->connection->lastInsertId();
         return $users;
     }
+    public function delete_user($id){
+        return $this->execute("DELETE FROM users WHERE id = :id", ['id' => $id]);
+
+    }
+    public function update_user($id, $user) {
+        $this->execute_update('users', $id, $user);
+    }
+
+    public function get_user_by_id($id) {
+        return $this->query_unique("SELECT * FROM users WHERE id = :id", ["id" => $id]);
+    }
 }

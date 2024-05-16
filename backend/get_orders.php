@@ -18,4 +18,4 @@ if (!$order) {
 }
 
 echo json_encode($order);
-?>
+

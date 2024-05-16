@@ -35,7 +35,7 @@ class ProductDao extends BaseDao
     }
 
     public function delete_product($id) {  
-        $this->execute("DELETE FROM product WHERE id = :id", ["id" => $id]);
+        $this->execute("DELETE FROM products WHERE product_id = :id", ["id" => $id]);
     }
     public function update_product($product_id, $product)
     {
@@ -43,4 +43,4 @@ class ProductDao extends BaseDao
     }
 
 }
-?>
+
