@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const token = localStorage.getItem('user');
 
-    fetch('backend/cart', {
+    fetch(Constants.get_api_base_url()+'cart', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', function(event) {
                 event.preventDefault();
                 const cartItemId = this.getAttribute('data-id');
-                fetch('backend/cart-delete', {
+                fetch(Constants.get_api_base_url()+'cart-delete', {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

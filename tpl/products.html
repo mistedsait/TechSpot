@@ -235,7 +235,7 @@ function filterProducts(category) {
 const productList = document.querySelector('.container .row');
 productList.innerHTML = ''; 
 
-fetch(`backend/products?category=${category}`)
+fetch(Constants.get_api_base_url() + `products?category=${category}`)
     .then(response => response.json())
     .then(products => {
         products.forEach(product => {  
@@ -283,7 +283,7 @@ fetch(`backend/products?category=${category}`)
 function addToCart(productId) {
 const token = localStorage.getItem('user');
 
-fetch('backend/add-to-cart', {
+fetch(Constants.get_api_base_url() + 'add-to-cart', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
