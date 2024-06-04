@@ -81,6 +81,9 @@ Flight::route('POST /orders/add', function(){
  *     description="Delete an order from the system by providing its ID",
  *     operationId="deleteOrder",
  *     tags={"Order"},
+ *     security={
+ *          {"ApiKey": {}}
+ *      },
  *     @OA\Parameter(
  *         name="id",
  *         in="path",
@@ -129,6 +132,9 @@ Flight::route('DELETE /order/delete/@id:[0-9]+', function($order_id){
  *     description="Update an existing order in the system",
  *     operationId="updateOrder",
  *     tags={"Order"},
+ *     security={
+ *          {"ApiKey": {}}
+ *      },
  *     @OA\RequestBody(
  *         required=true,
  *         description="JSON object containing the order details to update",

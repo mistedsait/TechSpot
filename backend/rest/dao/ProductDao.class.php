@@ -13,7 +13,7 @@ class ProductDao extends BaseDao
     public function getProductsByCategory($category)
     {
         try {
-            $query = "SELECT name,price,image FROM products";
+            $query = "SELECT name,price,image,product_id FROM products";
             if ($category !== 'all') {
                 $query .= " WHERE category = :category";
             }
@@ -28,6 +28,18 @@ class ProductDao extends BaseDao
             throw $e;
         }
         
+    }
+    public function getProductById($id) {
+        try {
+            $query = "SELECT * FROM products WHERE product_id = :id";
+            $statement = $this->connection->prepare($query);
+            $statement->bindParam(':id', $id, PDO::PARAM_INT);
+            $statement->execute();
+            $product = $statement->fetch(PDO::FETCH_ASSOC);
+            return $product;
+        } catch (PDOException $e) {
+            throw $e;
+        }
     }
     public function add_product($product_item)
     {

@@ -10,4 +10,6 @@ class AuthService {
     public function get_user_by_email($email){
         return $this->auth_dao->get_user_by_email($email);
     }
+
+
 }

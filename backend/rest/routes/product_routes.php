@@ -24,6 +24,7 @@ require_once __DIR__ . '/../services/ProductService.class.php';
  *     )
  * )
  */
+
 Flight::route('GET /products', function(){
     header('Content-Type: application/json');
 
@@ -34,11 +35,15 @@ Flight::route('GET /products', function(){
 
     Flight::json($products);
 });
+
 /**
      * @OA\Delete(
      *      path="/product/delete/{product_id}",
      *      tags={"Products"},
      *      summary="Delete product by id",
+     *      security={
+     *          {"ApiKey": {}}
+     *      },
      *      @OA\Response(
      *           response=200,
      *           description="Status message"
@@ -69,6 +74,9 @@ Flight::route('GET /products', function(){
  *     path="/product/update",
  *     summary="Update a product",
  *     tags={"Products"},
+ *     security={
+ *          {"ApiKey": {}}
+ *      },
  *     @OA\RequestBody(
  *         required=true,
  *         description="Product data to update",
@@ -127,6 +135,9 @@ Flight::route('PUT /product/update', function(){
  *     path="/product/add",
  *     summary="Add a new product",
  *     tags={"Products"},
+ *     security={
+ *          {"ApiKey": {}}
+ *      },
  *     @OA\RequestBody(
  *         required=true,
  *         description="Product data to add",
@@ -177,6 +188,62 @@ Flight::route('POST /product/add', function(){
     }
 });
 
+Flight::route('GET /get-product-id/@id', function($id){
+    /**
+ * @OA\Get(
+ *     path="/get-product-id/{id}",
+ *     summary="Get product by ID",
+ *     tags={"Products"},
+ *     @OA\Parameter(
+ *         name="id",
+ *         in="path",
+ *         required=true,
+ *         description="The ID of the product to fetch",
+ *         @OA\Schema(
+ *             type="integer",
+ *             example=1
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=200,
+ *         description="Product details retrieved successfully",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="product_id", type="integer", example=1),
+ *             @OA\Property(property="name", type="string", example="iPhone 15"),
+ *             @OA\Property(property="category", type="string", example="Phones"),
+ *             @OA\Property(property="price", type="number", format="float", example=799.00),
+ *             @OA\Property(property="image", type="string", example="path/to/image.jpg"),
+ *             @OA\Property(property="description", type="string", example="Latest iPhone model with A17 chip.")
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=404,
+ *         description="Product not found",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="message", type="string", example="Product not found")
+ *         )
+ *     ),
+ *     @OA\Response(
+ *         response=500,
+ *         description="Server error",
+ *         @OA\JsonContent(
+ *             @OA\Property(property="message", type="string", example="Internal server error")
+ *         )
+ *     )
+ * )
+ */
+
+    header('Content-Type: application/json');
+
+    $product_service = new ProductService();
+    $product = $product_service->getProductById($id);
+
+    if ($product) {
+        Flight::json($product);
+    } else {
+        Flight::halt(404, json_encode(["message" => "Product not found"]));
+    }
+});
 
 
 
