@@ -18,6 +18,7 @@ class Config {
     public static function DB_PASSWORD() {
         return Config::get_env("DB_PASSWORD", 'root');
     }
+    
     public static function DB_HOST() {
         return Config::get_env("DB_HOST", '127.0.0.1');
     }
