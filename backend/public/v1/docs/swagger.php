@@ -2,8 +2,11 @@
 
 require __DIR__ . '/../../../vendor/autoload.php';
 
-define('BASE_URL', 'http://localhost/TechSpot/backend');
-
+if($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1'){
+    define('BASE_URL', 'http://localhost/TechSpot/backend/');
+} else {
+    define('BASE_URL', 'https://dolphin-app-m354a.ondigitalocean.app/backend/');
+}
 error_reporting(0);
 
 $openapi = \OpenApi\Generator::scan(['../../../rest/routes', './'], ['pattern' => '*.php']);

@@ -6,7 +6,7 @@ $(document).ready(function() {
         const password = $('#password').val();
         
         $.ajax({
-            url: 'backend/auth/login',
+            url: Constants.get_api_base_url()+'auth/login',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ email: email, password: password }),

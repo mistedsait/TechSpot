@@ -3,7 +3,7 @@ var Constants = {
       if (location.hostname == "localhost") {
         return "http://localhost/TechSpot/backend/";
       } else {
-        return "https://walrus-app-dere7.ondigitalocean.app/dentist-backend/";
+        return "https://dolphin-app-m354a.ondigitalocean.app/backend/";
       }
     },
   };

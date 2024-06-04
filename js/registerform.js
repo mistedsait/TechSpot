@@ -81,7 +81,7 @@ $(document).ready(function() {
         let data = serializeForm(form);
 
         $.ajax({
-            url: "backend/users/add",
+            url: Constants.get_api_base_url() + 'users/add',
             type: "POST",
             data: JSON.stringify(data),
             contentType: "application/json",
