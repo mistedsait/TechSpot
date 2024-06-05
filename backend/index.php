@@ -2,8 +2,7 @@
 require 'vendor/autoload.php';
 
 Flight::before('start', function(&$params, &$output){
-    header('Access-Control-Allow-Origin: https://lionfish-app-vc4vk.ondigitalocean.app');
-    header('Access-Control-Allow-Origin: https://dolphin-app-m354a.ondigitalocean.app/');
+    header('Access-Control-Allow-Origin: https://dolphin-app-m354a.ondigitalocean.app');
     header('Access-Control-Allow-Methods: HEAD, GET, POST, PUT, DELETE, OPTIONS');
     header('Access-Control-Allow-Headers: Request, Origin, Content-Type, Authorization, X-Requested-With, Accept');
     header('Access-Control-Allow-Credentials: true');
@@ -13,6 +12,7 @@ Flight::before('start', function(&$params, &$output){
         exit(0);
     }
 });
+
 
 
 require 'rest/routes/middleware_routes.php';

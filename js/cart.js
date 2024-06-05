@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let subtotal = 0;
 
-        container.innerHTML = ''; // Clear the container first
+        container.innerHTML = '';
         data.forEach(item => {
             const itemTotal = item.product_price * item.quantity;
             subtotal += itemTotal;
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
             container.insertAdjacentHTML('beforeend', cartItem);
         });
 
-        const shipping = 20; // Example shipping cost
+        const shipping = 20;
         const total = subtotal + shipping;
 
         itemCount.textContent = `You have ${data.length} items in your cart`;
@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         totalElement.textContent = `$${total.toFixed(2)}`;
         totalAmountElement.textContent = `$${total.toFixed(2)}`;
 
-        // Add event listener for delete buttons
         document.querySelectorAll('.delete-item').forEach(button => {
             button.addEventListener('click', function(event) {
                 event.preventDefault();
