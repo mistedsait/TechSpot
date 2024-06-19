@@ -3,6 +3,9 @@
 ## Overview
 This project is an E-commerce application designed to provide a seamless shopping experience for users. It features a single-page application (SPAPP) architecture, secure authentication using JWT, and comprehensive API documentation with Swagger OpenAPI. The application ensures efficient communication between the backend and frontend, offering functionalities such as user registration, login, adding items to the cart, listing items by category, and managing the cart.
 
+## Link
+https://dolphin-app-m354a.ondigitalocean.app/#home
+
 ## Features (READ CAREFULLY, Page refresh is somewhere needed because of SPAPP implementation)
 - **User Registration and Login**: Users can create an account and log in to access the application's functionalities.
 - **Add Items to Cart**: Logged-in users can add items to their cart from the **"All Products"** page.
