@@ -1,4 +1,3 @@
 # TechSpot
 
-E-Commerce Web page that is still under development.
-SPAPP and responsive frontend implemented.
+E-Commerce single page application web page, with communication between backend and frontend. Middleware, JWT, Swagger OpenAPI implemented.
